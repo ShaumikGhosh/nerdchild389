@@ -129,9 +129,9 @@ except IOError:
         raise Exception('Could not open %s for writing!' % SECRET_FILE)
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'nerdchild389@gmail.com'
-EMAIL_HOST_PASSWORD = 'Nerdchild'
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_USE_TLS = True
+# EMAIL_PORT = 587
+# EMAIL_HOST_USER = 'nerdchild389@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Nerdchild'

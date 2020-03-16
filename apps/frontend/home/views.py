@@ -3,7 +3,6 @@ from django.views import View
 from apps.frontend.home.models import *
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from django.core.mail import send_mail
 from django.conf import settings
 from django.http import JsonResponse
 
@@ -49,24 +48,23 @@ def symptom(request):
     return render(request, 'frontend/index.html')
 
 
-@csrf_exempt
-def mailus(request):
-    from_email = settings.EMAIL_HOST_USER
-    email = request.POST['email']
-    receiver = [request.POST['email'],]
-    pet_key = request.POST['hidden-uni-pk']
-    pet = PetInfo.objects.get(uni_pk=pet_key)
-
-    mail = EmailFromVisitor(
-        v_email = email,
-        user = pet
-    )
-    mail.save()
-
-    # response_message = f"Hello {username},\nWe have received your mail, regarding your pet nad {sub}.\nWe will get back to you soon."
-    # response_subject = "Pet Care"
-    # send_mail(response_subject, response_message, from_email, receiver)
-    return render(request, 'frontend/index.html')
+# @csrf_exempt
+# def mailus(request):
+#     from_email = settings.EMAIL_HOST_USER
+#     email = request.POST['email']
+#     receiver = [request.POST['email'],]
+#     pet_key = request.POST['hidden-uni-pk']
+#     pet = PetInfo.objects.get(uni_pk=pet_key)
+#
+#     mail = EmailFromVisitor(
+#         v_email = email,
+#         user = pet
+#     )
+#     mail.save()
+#
+#     # response_subject = "Pet Care"
+#     # send_mail(response_subject, response_message, from_email, receiver)
+#     return render(request, 'frontend/index.html')
 
 
 # @method_decorator(csrf_exempt, name='dispatch')
@@ -82,10 +80,10 @@ def mailus(request):
 #             print(sym.symptom_type)
 #         return render(request, self.template_location)
 
-# class GetProductList(View):
-#
-#     def get(self, request):
-#         data = Product.objects.all().values()
-#         return JsonResponse({'data': list(data)})
+class GetProductList(View):
+
+    def get(self, request):
+        data = Product.objects.all().values()
+        return JsonResponse({'data': list(data)})
 
 

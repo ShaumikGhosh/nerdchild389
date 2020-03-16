@@ -41,10 +41,10 @@ class Product(CommonModel):
         db_table = "Product"
 
 
-class EmailFromVisitor(CommonModel):
-
-    v_email = models.EmailField(max_length=100, null=False, blank=False)
-    user = models.ForeignKey(PetInfo, on_delete=models.CASCADE, null=False, blank=False)
-
-    class Meta:
-        db_table = "EmailFromVisitor"
+# class EmailFromVisitor(CommonModel):
+#
+#     v_email = models.EmailField(max_length=100, null=False, blank=False)
+#     user = models.ForeignKey(PetInfo, on_delete=models.CASCADE, null=False, blank=False)
+#
+#     class Meta:
+#         db_table = "EmailFromVisitor"

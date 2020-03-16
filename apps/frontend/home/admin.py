@@ -36,34 +36,6 @@ class HomeAdmin(admin.ModelAdmin):
     author.short_description = "Unique Pet ID"
 
 
-@admin.register(EmailFromVisitor)
-class VisitorEmail(admin.ModelAdmin):
-
-    list_display = ('email', 'subject', 'username', 'message', 'related_pet', 'created_at')
-    search_fields = ('user__uni_pk',)
-    list_per_page = 10
-
-    def email(self, obj):
-        return obj.v_email
-    email.short_description ="User Email"
-
-    def subject(self, obj):
-        return obj.v_subject
-    subject.short_description ="Sender Subject"
-
-    def username(self, obj):
-        return obj.v_user_name
-    username.short_description ="Sender Name"
-
-    def message(self, obj):
-        return obj.v_message
-    message.short_description ="Sender Message"
-
-    def related_pet(self, obj):
-        return obj.user.uni_pk
-    related_pet.short_description ="His/Her Pet ID"
-
-
 @admin.register(Product)
 class Product(admin.ModelAdmin):
     pass

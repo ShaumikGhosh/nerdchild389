@@ -102,17 +102,16 @@
         <div class="recd-area">
           <div class="recd">
             <div class="recd-separator">Product Recommendation: <span id="solution"></span></div>
-            <img src="{% static 'frontend/images/cbd-oil.jpg' %}" alt="product-image"/>
+            <img id="product-img" src="" alt="product-image"/>
           </div>
         </div>
         <div class='email-area'>
           <form id='mail-form'>
-            {% csrf_token %}
-            <div class='form-group'>
-              <strong>E-mail:</strong> <input type='text' placeholder='Enter e-mail address' id='email'/>
-            </div>
-            <input type='text' id='subject' hidden/>
-            <button type='submit' id='rsbtn'>Send E-mail</button>
+<!--            <div class='form-group'>-->
+<!--              <strong>E-mail:</strong> <input type='text' placeholder='Enter e-mail address' id='email'/>-->
+<!--            </div>-->
+<!--            <input type='text' id='subject' hidden/>-->
+            <button type='submit' id='rsbtn'>Finish</button>
           </form>
         </div>
       </div>

@@ -129,40 +129,18 @@ $(document).ready(function () {
         let message = $('#message').val();
         let regx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-        if (email !== "") {
-            if (regx.test(email)) {
+        $("#form-one").css('display', 'none');
+        $("#info-from").css('display', 'none');
+        $("#problem-form").css('display', 'none');
+        $(".result").css('display', 'none');
+        $(".tank-you-area").css('display', 'block');
+        $('.petBar5').addClass('petBar5Complete');
+        $('.petRact5').addClass('petRact5Complete');
+        $('.petBar6').addClass('petBar6Complete');
 
-                $.ajax({
-                    type: "POST",
-                    url: "/mail-us/",
-                    data: {
-                        'email': email,
-                        'subject': localStorage.getItem('data2'),
-                        'hidden-uni-pk': sessionStorage.getItem('pet_key'),
-                    },
-                });
+        successMessage(username);
 
-                successMessage(username);
-
-                $("#form-one").css('display', 'none');
-                $("#info-from").css('display', 'none');
-                $("#problem-form").css('display', 'none');
-                $(".result").css('display', 'none');
-                $(".tank-you-area").css('display', 'block');
-                $('.petBar5').addClass('petBar5Complete');
-                $('.petRact5').addClass('petRact5Complete');
-                $('.petBar6').addClass('petBar6Complete');
-                return false;
-            } else {
-                let message = "Invalid E-mail address detected!";
-                displayError(message);
-                return false;
-            }
-        } else {
-            let message = "Username, E-mail and Message is required!";
-            displayError(message);
-            return false;
-        }
+        return false;
     });
     $('#rsbtn2').click(function () {
 
@@ -181,7 +159,6 @@ $(document).ready(function () {
         window.location.href = "";
         return false;
     });
-
 });
 
 function displayError(msg) {
@@ -234,11 +211,14 @@ function displayResult() {
 
     if(localStorage.getItem('problem') ==="Chronic Anxiety"){
         $('#solution').append("Stress Reliever.");
+        $('#product-img').attr("src", "static/frontend/images/cbd-oil.jpg");
     }
     if(localStorage.getItem('problem') ==="Itching/Scratching"){
         $('#solution').append("Veterinarian Consult.");
+        $('#product-img').attr("src", "static/frontend/images/cbd-oil.jpg");
     }
     if(localStorage.getItem('problem') ==="Pain"){
         $('#solution').append("Stress Reliever, Veterinarian Consult");
+        $('#product-img').attr("src", "static/frontend/images/cbd-oil.jpg");
     }
 }
