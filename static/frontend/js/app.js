@@ -125,22 +125,47 @@ $(document).ready(function () {
         e.preventDefault();
 
         let email = $('#email').val();
-        let username = $('#username').val();
-        let message = $('#message').val();
         let regx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-        $("#form-one").css('display', 'none');
-        $("#info-from").css('display', 'none');
-        $("#problem-form").css('display', 'none');
-        $(".result").css('display', 'none');
-        $(".tank-you-area").css('display', 'block');
-        $('.petBar5').addClass('petBar5Complete');
-        $('.petRact5').addClass('petRact5Complete');
-        $('.petBar6').addClass('petBar6Complete');
+        if (email !== "") {
+            if (regx.test(email)) {
 
-        successMessage(username);
+                $.ajax({
+                    type: "POST",
+                    url: "/mail-us/",
+                    data: {
+                        'email': email,
+                        'subject': localStorage.getItem('data2'),
+                        'hidden-uni-pk': sessionStorage.getItem('pet_key'),
+                    },
+                });
 
-        return false;
+                successMessage();
+
+                $("#form-one").css('display', 'none');
+                $("#info-from").css('display', 'none');
+                $("#problem-form").css('display', 'none');
+                $(".result").css('display', 'none');
+                $(".tank-you-area").css('display', 'block');
+                $('.petBar5').addClass('petBar5Complete');
+                $('.petRact5').addClass('petRact5Complete');
+                $('.petBar6').addClass('petBar6Complete');
+
+                setTimeout(function () {
+                    configMail();
+                });
+
+                return false;
+            } else {
+                let message = "Invalid E-mail address detected!";
+                displayError(message);
+                return false;
+            }
+        } else {
+            let message = "Username, E-mail and Message is required!";
+            displayError(message);
+            return false;
+        }
     });
     $('#rsbtn2').click(function () {
 
@@ -172,12 +197,12 @@ function displayError(msg) {
     `);
 }
 
-function successMessage(name) {
+function successMessage() {
     $('.swt-popup').append(`
         <script>
             Swal.fire(
                 'Great!',
-                "Hello ${name}, Thanks for mailing us, we'll contact you shortly!",
+                "Now you can mail us via your mailbox regarding the issue, we'll contact you shortly!",
                 'success',
             )
         </script>
@@ -221,4 +246,45 @@ function displayResult() {
         $('#solution').append("Stress Reliever, Veterinarian Consult");
         $('#product-img').attr("src", "static/frontend/images/cbd-oil.jpg");
     }
+}
+
+
+function configMail() {
+
+    let c = localStorage.getItem('data');
+    let b = c.split(",");
+
+    let pb = localStorage.getItem('data2');
+
+    let a = "";
+    if (pb === "ca"){
+        a = "Chronic Anxiety";
+    }
+    if (pb === "is"){
+        a = "Itching/Scratching";
+    }
+    if (pb === "pn"){
+        a = "Pain";
+    }
+    let d = "";
+    if(a==="Chronic Anxiety"){
+        d = "Stress Reliever";
+    }
+    if(a==="Itching/Scratching"){
+        d = "Veterinarian Consult";
+    }
+    if(a==="Pain"){
+        d = "Stress Reliever, Veterinarian Consult";
+    }
+
+    let x = $('#mail-window');
+    x.attr('href', `
+        mailto:nerdchild389@gmail.com?subject=About%20my%20pet&body=Pet%20Name:%20${b[0]}
+        %0D%0APet%20Breed:%20${b[1]}
+        %0D%0APet%20Age:%20${b[2]}
+        %0D%0APet%20Weight:%20${b[3]}
+        %0D%0APet%20Problem:%20${a}
+        %0D%0APet%20Solution:%20${d}
+    `);
+    x[0].click();
 }

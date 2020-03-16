@@ -87,3 +87,16 @@ class GetProductList(View):
         return JsonResponse({'data': list(data)})
 
 
+import smtplib
+def sendmail(request):
+    sender = "shaumik.gh@gmail.com"
+    rcver = ["nerdchild389@gmail.com",]
+    message = "Hello"
+    try:
+        smtpobj = smtplib.SMTP('localhost')
+        smtpobj.sendmail(sender, rcver, message)
+        print("Success")
+    except smtplib.SMTPException:
+        print("Error")
+
+
