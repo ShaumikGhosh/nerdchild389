@@ -1,0 +1,210 @@
+.prgress-data div {
+	display: inline-block;
+}
+
+.petBar1 {
+	width: 100px;
+    height: 15px;
+    background-color: #e6e6e6;
+    border-top-left-radius: 10px;
+}
+.petRact1 {
+	background-color: #e6e6e6;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+}
+
+.questions{
+    line-height: 10px;
+}
+
+
+.petBar1Complete {
+	width: 100px;
+    height: 15px;
+    background-color: orangered;
+}
+.petRact1Complete {
+	background-color: orangered;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+    position: relative;
+}
+
+
+
+.petBar2 {
+	width: 100px;
+    height: 15px;
+    background-color: #e6e6e6;
+    margin-left: -10px;
+}
+.petRact2 {
+	background-color: #e6e6e6;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+}
+.petBar2Complete {
+	width: 100px;
+    height: 15px;
+    background-color: orangered;
+    margin-left: -10px;
+}
+.petRact2Complete {
+	background-color: orangered;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+    position: relative;
+}
+
+
+
+.petBar3 {
+	width: 100px;
+    height: 15px;
+    background-color: #e6e6e6;
+    margin-left: -10px;
+}
+.petRact3 {
+	background-color: #e6e6e6;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+}
+.petBar3Complete {
+	width: 100px;
+    height: 15px;
+    background-color: orangered;
+    margin-left: -10px;
+}
+.petRact3Complete {
+	background-color: orangered;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+    position: relative;
+}
+
+
+
+.petBar4 {
+	width: 100px;
+    height: 15px;
+    background-color: #e6e6e6;
+    margin-left: -10px;
+}
+.petRact4 {
+	background-color: #e6e6e6;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+}
+.petBar4Complete {
+	width: 100px;
+    height: 15px;
+    background-color: orangered;
+    margin-left: -10px;
+}
+.petRact4Complete {
+	background-color: orangered;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+    position: relative;
+}
+
+
+.petBar5 {
+	width: 100px;
+    height: 15px;
+    background-color: #e6e6e6;
+    margin-left: -10px;
+}
+.petRact5 {
+	background-color: #e6e6e6;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+}
+.petBar5Complete {
+	width: 100px;
+    height: 15px;
+    background-color: orangered;
+    margin-left: -10px;
+}
+.petRact5Complete {
+	background-color: orangered;
+    color: white;
+    font-weight: bold;
+    border-radius: 100%;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    padding: 10px;
+    margin-left: -10px;
+    position: relative;
+}
+
+.petBar6 {
+	width: 100px;
+    height: 15px;
+    background-color: #e6e6e6;
+    margin-left: -10px;
+    border-bottom-right-radius: 10px;
+}
+.petBar6Complete {
+	width: 100px;
+    height: 15px;
+    background-color: orangered;
+    margin-left: -10px;
+    border-bottom-right-radius: 10px;
+}

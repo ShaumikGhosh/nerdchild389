@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="UTF-8"/>
+  <title>Demo Pet App</title>
+  <script type="text/javascript" src="{% static 'frontend' %}/js/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <link rel="stylesheet" href="{% static 'frontend' %}/css/style.css"/>
+  <link rel="stylesheet" href="{% static 'frontend' %}/css/progress.css"/>
+  <link rel="icon" href="{% static 'frontend' %}/images/Cat-icon.png"/>
+</head>
+<body>
+<div class="main-body">
+  <div class="main">
+    <div class="prgress-data">
+      <div class="petBar1"></div>
+      <div class="petRact1">1</div>
+      <div class="petBar2"></div>
+      <div class="petRact2">2</div>
+      <div class="petBar3"></div>
+      <div class="petRact3">3</div>
+      <div class="petBar4"></div>
+      <div class="petRact4">4</div>
+      <div class="petBar5"></div>
+      <div class="petRact5">5</div>
+      <div class="petBar6"></div>
+    </div>
+    <div class="questions">
+
+      <form id="form-one">
+        <div class="form-group">
+          <h3>What is your pet name?</h3>
+          <input type='text' placeholder='Enter pet name' id='pet-name'/>
+          <button type='submit' id='qnb1'>Next</button>
+        </div>
+      </form>
+
+      <form id="info-from" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <h3>What is your pet breed?</h3>
+          <input type='text' placeholder='Enter pet breed' id='pet-breed'/>
+        </div>
+        <div class="form-group">
+          <h3>What is your pet age?</h3>
+          <input type='text' placeholder='Enter pet age' id='pet-age'/>
+        </div>
+        <div class="form-group">
+          <h3>What is your pet weight?</h3>
+          <input type='text' placeholder='Enter pet weight' id='pet-weight'/>
+        </div>
+        <input type="text" id="uni-pk" hidden>
+        <div class="form-group">
+          <button type='submit' id='qnb2' name="qnb2">Next</button>
+        </div>
+      </form>
+
+      <form id="problem-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <h3>What's wrong with your pet?</h3>
+            <input type='radio' value='ca' name="problem" id="problem1"/> <span>Chronic Anxiety</span><br><br>
+            <input type='radio' value='is' name="problem" id="problem2"/> <span>Itching/Scratching</span><br><br>
+            <input type='radio' value='pn' name="problem" id="problem3"/> <span>Pain</span>
+        </div>
+        <div class="form-group">
+          <button type='submit' id='qnb3'>Next</button>
+          <input type="number" id="hidden-uni-pk" hidden>
+        </div>
+      </form>
+      <div class='result'>
+        <div id="rs">
+          <table>
+          <tr>
+            <td>Your pet name</td>
+            <td>:</td>
+            <td id="pet_name"></td>
+          </tr>
+          <tr>
+            <td>Your pet breed</td>
+            <td>:</td>
+            <td id="pet_breed"></td>
+          </tr>
+          <tr>
+            <td>Your pet age</td>
+            <td>:</td>
+            <td id="pet_age"></td>
+          </tr>
+          <tr>
+            <td>Your pet weight</td>
+            <td>:</td>
+            <td id="pet_weight"></td>
+          </tr>
+          <tr>
+            <td>Your pet problem</td>
+            <td>:</td>
+            <td id="pet_problem"></td>
+          </tr>
+        </table>
+        </div>
+        <div class="recd-area">
+          <div class="recd">
+            <div class="recd-separator">Product Recommendation: <span id="solution"></span></div>
+            <img src="{% static 'frontend/images/cbd-oil.jpg' %}" alt="product-image"/>
+          </div>
+        </div>
+        <div class='email-area'>
+          <form id='mail-form'>
+            {% csrf_token %}
+            <div class='form-group'>
+              <strong>E-mail:</strong> <input type='text' placeholder='Enter e-mail address' id='email'/>
+            </div>
+            <input type='text' id='subject' hidden/>
+            <button type='submit' id='rsbtn'>Send E-mail</button>
+          </form>
+        </div>
+      </div>
+      <div class="tank-you-area">
+          <img src='{% static "frontend/images/thank-you.png" %}' alt='Thank You' id='thanks'/>
+          <button type='button' id='back-home'>Home</button>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="swt-popup"></div>
+<script type="text/javascript" src="{% static 'frontend' %}/js/app.js"></script>
+</body>
+</html>
