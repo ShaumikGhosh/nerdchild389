@@ -1,8 +1,8 @@
-$(document).ready(function () {
-
-    let x = function rollDice() {
+let x = function rollDice() {
         return (Math.floor(Math.random() * 60000) + 70000);
-    };
+};
+
+$(document).ready(function () {
 
     let collectedData = [];
 
@@ -269,7 +269,8 @@ function configMail() {
 
     let x = $('#mail-window');
     x.attr('href', `
-        mailto:nerdchild389@gmail.com?subject=About%20my%20pet&body=Pet%20Name:%20${b[0]}
+        mailto:nerdchild389@gmail.com?subject=About%20my%20pet&body=Pet%20ID:${x}
+        %0D%0APet%20Name:%20${b[0]}
         %0D%0APet%20Breed:%20${b[1]}
         %0D%0APet%20Age:%20${b[2]}
         %0D%0APet%20Weight:%20${b[3]}
