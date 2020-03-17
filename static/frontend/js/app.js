@@ -130,16 +130,6 @@ $(document).ready(function () {
         if (email !== "") {
             if (regx.test(email)) {
 
-                $.ajax({
-                    type: "POST",
-                    url: "/mail-us/",
-                    data: {
-                        'email': email,
-                        'subject': localStorage.getItem('data2'),
-                        'hidden-uni-pk': sessionStorage.getItem('pet_key'),
-                    },
-                });
-
                 successMessage();
 
                 $("#form-one").css('display', 'none');
@@ -162,7 +152,7 @@ $(document).ready(function () {
                 return false;
             }
         } else {
-            let message = "Username, E-mail and Message is required!";
+            let message = "E-mail is required!";
             displayError(message);
             return false;
         }

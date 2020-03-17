@@ -23,19 +23,26 @@ class HomeAdmin(admin.ModelAdmin):
 @admin.register(PetSymptom)
 class HomeAdmin(admin.ModelAdmin):
 
-    list_display = ('symptom', 'author', 'created_at')
+    list_display = ('symptom', 'solution', 'author', 'created_at')
     list_per_page = 10
     search_fields = ('pet__uni_pk',)
 
     def symptom(self, obj):
         if obj.symptom_type == "pn":
             return "Pain"
+        if obj.symptom_type == "ca":
+            return "Chronic Anxiety"
+        if obj.symptom_type == "is":
+            return "Itching/Scratching"
+
+    def solution(self, obj):
+        if obj.symptom_type == "pn":
+            return "Stress Reliever"
+        if obj.symptom_type == "ca":
+            return "Veterinarian Consult"
+        if obj.symptom_type == "is":
+            return "Stress Reliever, Veterinarian Consult"
 
     def author(self, obj):
         return obj.pet.uni_pk
     author.short_description = "Unique Pet ID"
-
-
-@admin.register(Product)
-class Product(admin.ModelAdmin):
-    pass

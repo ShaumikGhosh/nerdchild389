@@ -3,7 +3,6 @@ from django.views import View
 from apps.frontend.home.models import *
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from django.conf import settings
 from django.http import JsonResponse
 
 
@@ -48,55 +47,9 @@ def symptom(request):
     return render(request, 'frontend/index.html')
 
 
-# @csrf_exempt
-# def mailus(request):
-#     from_email = settings.EMAIL_HOST_USER
-#     email = request.POST['email']
-#     receiver = [request.POST['email'],]
-#     pet_key = request.POST['hidden-uni-pk']
-#     pet = PetInfo.objects.get(uni_pk=pet_key)
-#
-#     mail = EmailFromVisitor(
-#         v_email = email,
-#         user = pet
-#     )
-#     mail.save()
-#
-#     # response_subject = "Pet Care"
-#     # send_mail(response_subject, response_message, from_email, receiver)
-#     return render(request, 'frontend/index.html')
-
-
-# @method_decorator(csrf_exempt, name='dispatch')
-# class GetData(View):
-#
-#     template_location = 'frontend/index.html'
-#
-#     def get(self, request):
-#         pet_key = request.COOKIES.get('pet_key')
-#         pet_id = PetInfo.objects.get(uni_pk=pet_key)
-#         symptom = PetSymptom.objects.filter(pet=pet_id.id)
-#         for sym in symptom:
-#             print(sym.symptom_type)
-#         return render(request, self.template_location)
-
 class GetProductList(View):
 
     def get(self, request):
         data = Product.objects.all().values()
         return JsonResponse({'data': list(data)})
-
-
-import smtplib
-def sendmail(request):
-    sender = "shaumik.gh@gmail.com"
-    rcver = ["nerdchild389@gmail.com",]
-    message = "Hello"
-    try:
-        smtpobj = smtplib.SMTP('localhost')
-        smtpobj.sendmail(sender, rcver, message)
-        print("Success")
-    except smtplib.SMTPException:
-        print("Error")
-
 

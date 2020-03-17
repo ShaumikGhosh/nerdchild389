@@ -29,22 +29,3 @@ class PetSymptom(CommonModel):
 
     class Meta:
         db_table = 'PetSymptom'
-
-
-class Product(CommonModel):
-
-    product_name = models.CharField(max_length=100, null=False, blank=False)
-    solution_name = models.CharField(max_length=100, null=False, blank=False)
-    product_image = models.ImageField(upload_to='')
-
-    class Meta:
-        db_table = "Product"
-
-
-# class EmailFromVisitor(CommonModel):
-#
-#     v_email = models.EmailField(max_length=100, null=False, blank=False)
-#     user = models.ForeignKey(PetInfo, on_delete=models.CASCADE, null=False, blank=False)
-#
-#     class Meta:
-#         db_table = "EmailFromVisitor"
